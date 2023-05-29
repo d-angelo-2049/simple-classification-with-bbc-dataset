@@ -1,0 +1,18 @@
+version: "3"
+services:
+  train-bbc-service:
+    runtime: nvidia
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888" # port for JupyterLab (or JupyterNotebook)
+      - "2222:22"
+    volumes:
+      - .:/simple-classification-with-bbc-dataset
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    tty: true
+    stdin_open: true
+    command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root & /usr/sbin/sshd -D

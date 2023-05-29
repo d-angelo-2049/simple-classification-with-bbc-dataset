@@ -1,0 +1,14 @@
+name: pytorch-py3_8
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.8
+  - cudatoolkit=11.3
+  - pytorch=1.10.0
+  - torchvision=0.11.0
+  - torchaudio=0.10.0
+  - jupyterlab
+  - ipywidgets
+  - matplotlib
+  - tqdm
